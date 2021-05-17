@@ -1,0 +1,57 @@
+{
+    "name": "UserIndoBot",
+    "description": "UserIndoBot",
+    "keywords": [
+        "telegram",
+        "bot",
+        "plugin",
+        "modular",
+        "productivity",
+        "administrators",
+        "messages"
+    ],
+    "repository": "https://github.com/userbotindo/UserIndoBot",
+    "env": {
+        "TOKEN": {
+            "description": "Bot Token",
+            "required": true
+        },
+        "OWNER_ID": {
+            "description": "ID owner",
+            "required": true
+        },
+        "OWNER_USERNAME": {
+            "description": "Username owner",
+            "required": true
+        },
+        "MONGO_DB_URI": {
+            "description": "MongoDB URI contoh : mongodb+srv://username:pwd@host.port.mongodb.net/db_name",
+            "required": true
+        },
+        "MESSAGE_DUMP" : {
+          "description": "Channel logs ID",
+          "required": true
+        },
+        "GBAN_LOGS" : {
+          "description": "Global Ban Channel ID",
+          "required": true
+        }
+    },
+    "addons": [{
+    "plan": "heroku-postgresql",
+    "options": {
+      "version": "12"
+    }
+  }],
+    "buildpacks": [
+        {
+            "url": "heroku/python"
+        }
+    ],
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "free"
+        }
+    }
+}
